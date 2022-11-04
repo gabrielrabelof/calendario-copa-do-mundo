@@ -6,13 +6,13 @@
 
 body {
   background-color: #121214;
-  background-image: url(./assets/bg.svg); 
+  background-image: url(./assets/bg.svg);
   background-position-x: center;
   background-position-y: -715px;
 }
 
 body * {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 #app {
@@ -40,7 +40,7 @@ header {
   text-align: center;
 
   background-color: #202024;
-  border-bottom: 2px solid #338AF3;
+  border-bottom: 2px solid #338af3;
   border-radius: 6px;
 }
 
@@ -51,18 +51,18 @@ header {
   align-items: center;
 
   padding: 8px 16px;
-  border: 1px solid #338AF3;
+  border: 1px solid #338af3;
   border-radius: 6px;
 
   width: fit-content;
   margin-inline: auto;
   margin-bottom: 53px;
 
-  color: #F7DD43;
+  color: #f7dd43;
 }
 
 .card h2 span {
-  color: #E1E1E6;
+  color: #e1e1e6;
   font-size: 14px;
   text-transform: uppercase;
 }
@@ -81,14 +81,48 @@ header {
   justify-content: space-between; /*espaço entre os elementos*/
 }
 
-.card ul li + li { /*procura li que tenha um li anterior*/
+.card ul li + li {
+  /*procura li que tenha um li anterior*/
   padding-top: 24px;
   border-top: 1px solid #323239;
 }
 
 .card ul li strong {
-font-weight: 900;
-font-size: 36px;
-line-height: 125%;
-color: #E1E1E6;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 125%;
+  color: #e1e1e6;
 }
+
+/*hover = quando o mouse estiver sobre (sudo selector)*/
+.card h2:hover,
+.card ul li strong:hover,
+.card ul li img:hover {
+  transform: scale(1.1); /*aplica o efeito*/
+}
+
+.card h2,
+.card ul li strong,
+.card ul li img {
+  transition: transform 0.3s; /*tempo da transição*/
+}
+
+.card {
+  opacity: 0;
+  animation: appear .7s forwards; /*aplica a animação pelo nome declarado
+  // forwards = mantém as definições estabelecidas no @keyframes*/
+}
+
+/*@ = at rule = regra de @ // 
+appear = aparecer (nome da animação)*/
+@keyframes appear {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  /*animando de 0 a 100%*/
+  100% {
+    opacity: 1;
+  }
+}
+
