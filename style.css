@@ -4,11 +4,33 @@
   box-sizing: border-box; /*medida da caixa a partir da borda*/
 }
 
+:root {
+  --card-background-color: #1d1c19;
+  --card-title-border-color: #746615;
+  --card-color-primary: #f7dd43;
+  --bg: url(./assets/backgrounds/bg-yellow.svg);
+}
+
+body.blue {
+  --card-background-color: #202024;
+  --card-title-border-color: #338af3;
+  --card-color-primary: #338AF3;
+  --bg: url(./assets/backgrounds/bg-blue.svg);
+}
+
+body.green {
+  --card-background-color: #1A1F1B;
+  --card-title-border-color: #047C3F;
+  --card-color-primary: #047C3F;
+  --bg: url(./assets/backgrounds/bg-green.svg);
+}
+
+ul {
+  list-style: none;
+}
+
 body {
-  background-color: #121214;
-  background-image: url(./assets/bg.svg);
-  background-position-x: center;
-  background-position-y: -715px;
+  background: #121214 var(--bg) no-repeat top center/cover;
 }
 
 body * {
@@ -17,11 +39,8 @@ body * {
 
 #app {
   width: fit-content; /*fit = encaixe - content = conteúdo*/
-  margin: 52px auto; /*auto = espaços laterais por igual*/
-}
-
-ul {
-  list-style: none;
+  margin: auto; /*auto = espaços laterais por igual*/
+  padding-top: 52px;
 }
 
 header {
@@ -39,8 +58,8 @@ header {
   padding: 32px 23px;
   text-align: center;
 
-  background-color: #202024;
-  border-bottom: 2px solid #338af3;
+  background-color: var(--card-background-color);
+  border-bottom: 2px solid var(--card-color-primary);
   border-radius: 6px;
 }
 
@@ -51,7 +70,7 @@ header {
   align-items: center;
 
   padding: 8px 16px;
-  border: 1px solid #338af3;
+  border: 1px solid var(--card-title-border-color);
   border-radius: 6px;
 
   width: fit-content;
@@ -126,3 +145,11 @@ appear = aparecer (nome da animação)*/
   }
 }
 
+/*tornando o site responsivo*/
+@media (min-width: 700px) {
+  #cards {
+    max-width: 670px;
+    flex-direction: row; /*a direção volta a ser em linha*/
+    flex-wrap: wrap; /*ao chegar na max width, o próx. conteúdo vai para baixo*/
+  }
+}
